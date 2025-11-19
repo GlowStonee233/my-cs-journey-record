@@ -95,3 +95,121 @@ ssh -T git@github.com
     1. `git add .` (添加所有修改)
     2. `git commit -m "有意义的说明"` (创建本地存档)
     3. `git push` (推送到 GitHub)
+---
+# **第五部分：使用vscode快捷使用git**
+vscode可以用图形化界面直接使用git的各种功能，比命令行要简单，记忆成本比较低
+
+图形化界面默认有三个工作区，分别是REPOSITORIES(显示你在GitHub上的所有项目),CHANGES（显示发生变更的文件）,GRAPH（用时间线显示你对仓库做的操作）
+在CHANGES区域，可以直接写commit并提交，同时也可以轻松push
+## vscode中文件的git操作
+例如：
+直接在vscode中右键文件，出现的多个选项的功能
+- Open Change：打开修改后的文件（高亮显示修改部分）
+- Open File：打开修改后的文件（普通打开）
+- Open File（HEAD）:打开当前分支最后一次提交的版本
+- Discard Changes：移除修改
+- Staged Changes：将文件纳入版本控制
+其余选项都是字面意思
+----
+# 第六部分：git常用命令速查
+## 基础配置
+
+|命令|说明|
+|---|---|
+|`git config --global user.name "你的姓名"`|设置全局用户名|
+|`git config --global user.email "你的邮箱"`|设置全局邮箱|
+|`git config --list`|查看所有配置|
+
+## 创建与克隆
+
+|命令|说明|
+|---|---|
+|`git init`|在当前目录初始化新仓库|
+|`git clone <仓库URL>`|克隆远程仓库到本地|
+
+##  查看状态与历史
+
+|命令|说明|
+|---|---|
+|`git status`|查看工作区和暂存区状态|
+|`git log`|查看提交历史|
+|`git log --oneline`|简洁格式查看历史|
+|`git log --graph`|图形化显示分支历史|
+|`git show <commit-id>`|查看特定提交的详细信息|
+|`git diff`|查看未暂存的更改|
+|`git diff --staged`|查看已暂存的更改|
+
+##  添加与提交
+
+|命令|说明|
+|---|---|
+|`git add <文件名>`|添加特定文件到暂存区|
+|`git add .`|添加所有更改到暂存区|
+|`git add -p`|交互式选择要暂存的更改|
+|`git commit -m "提交信息"`|提交暂存区的更改|
+|`git commit -am "提交信息"`|添加所有更改并直接提交（跳过 git add）|
+
+##  撤销与恢复
+
+|命令|说明|
+|---|---|
+|`git restore <文件名>`|撤销工作区的更改（Git 2.23+）|
+|`git restore --staged <文件名>`|将文件从暂存区移回工作区|
+|`git reset <commit-id>`|回退到指定提交（默认软重置）|
+|`git reset --hard <commit-id>`|硬重置，丢弃所有更改|
+|`git revert <commit-id>`|创建新的提交来撤销指定提交|
+
+##  分支管理
+
+|命令|说明|
+|---|---|
+|`git branch`|查看所有分支|
+|`git branch <分支名>`|创建新分支|
+|`git checkout <分支名>`|切换到指定分支|
+|`git switch <分支名>`|切换到指定分支（Git 2.23+）|
+|`git checkout -b <新分支名>`|创建并切换到新分支|
+|`git switch -c <新分支名>`|创建并切换到新分支（Git 2.23+）|
+|`git branch -d <分支名>`|删除分支|
+|`git branch -D <分支名>`|强制删除分支|
+|`git merge <分支名>`|合并指定分支到当前分支|
+
+## 远程仓库操作
+
+| 命令                          | 说明           |
+| --------------------------- | ------------ |
+| `git remote -v`             | 查看远程仓库信息     |
+| `git remote add <名称> <URL>` | 添加远程仓库       |
+| `git fetch <远程名>`           | 下载远程仓库更新但不合并 |
+| `git pull <远程名> <分支名>`      | 下载并合并远程更改    |
+| `git push <远程名> <分支名>`      | 推送本地提交到远程仓库  |
+| `git push -u <远程名> <分支名>`   | 推送并设置上游分支    |
+
+##  标签管理
+
+|命令|说明|
+|---|---|
+|`git tag`|查看所有标签|
+|`git tag <标签名>`|创建轻量标签|
+|`git tag -a <标签名> -m "说明"`|创建带注释的标签|
+|`git push <远程名> <标签名>`|推送标签到远程仓库|
+|`git push <远程名> --tags`|推送所有标签到远程仓库|
+
+##  清理与维护
+
+|命令|说明|
+|---|---|
+|`git clean -n`|预览将被删除的未跟踪文件|
+|`git clean -f`|删除未跟踪的文件|
+|`git gc`|清理优化仓库|
+
+##  实用技巧命令
+
+| 命令                 | 说明           |
+| ------------------ | ------------ |
+| `git stash`        | 临时保存工作进度     |
+| `git stash pop`    | 恢复最近的工作进度    |
+| `git rebase <分支名>` | 变基操作         |
+| `git bisect start` | 使用二分查找定位问题提交 |
+
+
+----
