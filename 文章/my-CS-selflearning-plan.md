@@ -11,8 +11,8 @@
 这个阶段的目标是**打好地基**，掌握最基本的工具和编程思维。
 ### 学习清单 (有序列表)
 **基础技能**
-- [ ] 掌握 `Markdown` 进行日常笔记记录，用obsidian构建个人知识库
-- [ ] 学习如何使用Git和Github
+- [x] 掌握 `Markdown` 进行日常笔记记录，用obsidian构建个人知识库
+- [x] 学习如何使用Git和Github
 - [ ] 构建有效的信息搜索途径如利用高级搜索，使用Google而不是百度，用ai代替搜索
 - [ ] 构建高效的信息获取，处理，使用流程
 **编程入门：CS50**
@@ -41,7 +41,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define MAX_LENGTH 1000
-// 函数原型：清晰地表明它们需要什么参数
 void read_stdin(char buffer[], int max_size);
 void print_stdout(const char buffer[]);
 int main() {
@@ -52,36 +51,25 @@ int main() {
     printf("If you want to print your input, please enter 1: ");
     
     int choice = 0;    
-    if (scanf("%d", &choice) == 1)
-    {
-        if (choice == 1)
-        {
+    if (scanf("%d", &choice) == 1&&choice == 1){
             printf("\nYour input was:\n");
-            print_stdout(user_input); // 将数组传递给打印函数  
+            print_stdout(user_input);  
         }
-    } else
-    {
-        printf("Invalid input for choice.\n");
-    }
     printf("\nProgram finished.\n");
     return 0;
 }
-void read_stdin(char buffer[], int max_size)
-{
+void read_stdin(char buffer[], int max_size){
     int i = 0;
     int c;
-    while (i < max_size - 1 && (c = getchar()) != EOF && c != '\n')
-    {
+    while (i < max_size - 1 && (c = getchar()) != EOF && c != '\n'){
         buffer[i] = (char)c;
         i++;
     }
     buffer[i] = '\0';
 }
-void print_stdout(const char buffer[])
-{
+void print_stdout(const char buffer[]){
     int i = 0;
-    while (buffer[i] != '\0')
-    {
+    while (buffer[i] != '\0'){
         putchar(buffer[i]);  
         i++;
     }
