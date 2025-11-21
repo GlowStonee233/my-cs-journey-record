@@ -1,5 +1,5 @@
 #  **前言**
-本教程的目的是提供GIt和GitHub的基本功能的教学，旨在带领读者在GIthub上创建第一个仓库，并学习如何推送本地文件变更到远程仓库。
+本教程的目的是提供GIt和GitHub的基本功能的教学，旨在带领读者在GIthub上创建第一个仓库，并学习如何推送本地文件变更到远程仓库。为保证知识的通用性以，本文先从命令行讲起，最后以vscode为例讲解带GUI的Git工具。
 
 ---
 #  **第一部分：入门准备**
@@ -27,7 +27,7 @@ git config --global user.email "你刚刚复制的GitHub匿名邮箱"
 这样做的目的是保护你的真实邮箱不被公开在互联网上，避免收到垃圾邮件。
 
 ---
-#  **第二部分：解决国内网络问题 (关键步骤)**
+# **第二部分：解决国内网络问题 (关键步骤)**
 在国内使用 `git clone` 或 `git push` 时，你很有可能会遇到 `Connection was reset` 或 `Connection timed out` 等网络错误。这是因为网络环境（很有可能是GFW）对 GitHub 的 HTTPS 连接存在干扰。
 **最佳解决方案是切换到更稳定、更专业的 SSH 协议。**（当然代理也是可以的，但是配置比较麻烦，因为给git必须要手动设置代理）
 方法如下：
@@ -97,10 +97,10 @@ ssh -T git@github.com
     3. `git push` (推送到 GitHub)
 ---
 # **第五部分：使用vscode快捷使用git**
-vscode可以用图形化界面直接使用git的各种功能，比命令行要简单，记忆成本比较低
+vscode可以用GUI直接使用git的常用功能，比命令行要简单，记忆成本比较低，但是如果要使用高级功能还是要用命令行。
 
-图形化界面默认有三个工作区，分别是REPOSITORIES(显示你在GitHub上的所有项目),CHANGES（显示发生变更的文件）,GRAPH（用时间线显示你对仓库做的操作）
-在CHANGES区域，可以直接写commit并提交，同时也可以轻松push
+vscode的GUI默认有三个工作区，分别是REPOSITORIES(显示你在GitHub上的所有项目),CHANGES（显示发生变更的文件）,GRAPH（用时间线显示你对仓库做的操作）
+在CHANGES区域，可以直接输入commit并提交，同时也可以轻松push到远程仓库。
 ## vscode中文件的git操作
 例如：
 直接在vscode中右键文件，出现的多个选项的功能
