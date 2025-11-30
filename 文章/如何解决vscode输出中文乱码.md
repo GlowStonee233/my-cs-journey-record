@@ -24,6 +24,7 @@ if ($?) { chcp 65001 | Out-Null;
 - `$?`：PowerShell 的特殊变量，表示上一条命令的执行结果
 - `$?` 为 `$true` 表示成功，`$false` 表示失败
 - 只有编译成功（gcc 返回 0）才会执行花括号内的内容
+
 `chcp 65001 | Out-Null`
 - `chcp 65001`：Windows 命令，将控制台代码页设置为 65001（UTF-8）
 - `| Out-Null`：PowerShell 的管道操作，将输出重定向到空设备（不显示任何信息）
