@@ -20,6 +20,7 @@ chcp 65001
 if ($?) { chcp 65001 | Out-Null;
 ```
 命令解释：
+
  `if ($?) { ... }`
 - `$?`：PowerShell 的特殊变量，表示上一条命令的执行结果
 - `$?` 为 `$true` 表示成功，`$false` 表示失败
@@ -28,3 +29,10 @@ if ($?) { chcp 65001 | Out-Null;
 `chcp 65001 | Out-Null`
 - `chcp 65001`：Windows 命令，将控制台代码页设置为 65001（UTF-8）
 - `| Out-Null`：PowerShell 的管道操作，将输出重定向到空设备（不显示任何信息）
+# 一点问题
+这样设置，虽然消除了编码更改的信息，但是有可能把powershell的提示符也给消除了。
+推荐设置为以下：
+```
+"c": "cd $dir; gcc -fexec-charset=UTF-8 '$fileName' -o '$fileNameWithoutExt'; if ($?) { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; .\\'$fileNameWithoutExt' }",
+```
+这里使用 OutputEncoding 替代 chcp，防止影响到提示符。
