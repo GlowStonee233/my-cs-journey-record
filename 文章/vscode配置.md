@@ -9,10 +9,5 @@ Editor: Accept Suggestion On Commit Character
 code runner setting.json文件，"code-runner.executorMap"中
 添加了
 ```
-"c": "cd $dir; gcc -fexec-charset=UTF-8 '$fileName' -o '$fileNameWithoutExt'; if ($?) { chcp 65001 | Out-Null; .\\'$fileNameWithoutExt' }",
+"c": "cd $dir; gcc -fexec-charset=UTF-8 '$fileName' -o '$fileNameWithoutExt'; if ($?) { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; .\\'$fileNameWithoutExt' }",
 ```
-和
-```
-"cpp": "cd $dir; g++ -fexec-charset=UTF-8 '$fileName' -o '$fileNameWithoutExt'; if ($?) { chcp 65001 | Out-Null; .\\'$fileNameWithoutExt' }",
-```
-
