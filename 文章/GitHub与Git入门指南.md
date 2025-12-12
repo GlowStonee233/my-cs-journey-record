@@ -29,7 +29,7 @@ git config --global user.email "你刚刚复制的GitHub匿名邮箱"
 ---
 # **第二部分：解决国内网络问题 (关键步骤)**
 在国内使用 `git clone` 或 `git push` 时，你很有可能会遇到 `Connection was reset` 或 `Connection timed out` 等网络错误。这是因为网络环境（很有可能是GFW）对 GitHub 的 HTTPS 连接存在干扰。
-**最佳解决方案是切换到更稳定、更专业的 SSH 协议。**（当然代理也是可以的，但是配置比较麻烦，因为给git必须要手动设置代理）
+**最佳解决方案是切换到更稳定、更专业的 SSH 协议。**（当然代理也是可以的，但是配置比较麻烦）
 方法如下：
 ## **1. 生成 SSH 密钥**
 - [ ] 在 Git Bash 中运行 `ls -al ~/.ssh`，检查是否存在 `id_rsa.pub` 文件。
